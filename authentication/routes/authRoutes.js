@@ -1,14 +1,8 @@
-const express = require("express");
+// routes/authRoutes.js
+const express = require('express');
 const router = express.Router();
-const authController = require("../controllers/authController");
-const authMiddleware = require("../middleware/authMiddleware");
+const { register } = require('../controllers/authController');
 
-router.post("/register", authController.register);
-router.post("/login", authController.login);
-
-// Example protected route
-router.get("/profile", authMiddleware, (req, res) => {
-  res.json({ message: "Protected data", user: req.user });
-});
+router.post('/register', register);
 
 module.exports = router;

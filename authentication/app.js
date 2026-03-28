@@ -1,13 +1,16 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const authRoutes = require('./routes/authRoutes');
-require('dotenv').config();
-
+// app.js
+const express = require("express");
 const app = express();
-app.use(bodyParser.json());
+const authRoutes = require("./routes/authRoutes");
 
-app.use('/api/auth', authRoutes);
+//defined instance PORT = 8080
+const PORT = 8080;
+app.use(express.json());
+app.use("/auth", authRoutes);
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server running on port ${process.env.PORT}`);
+app.get("/hello", (req, res) => {
+  res.send("Running locahost on port :8080");
 });
+app.listen(PORT, () =>
+  console.log(`Server running on port 3000 http://localhost: ${PORT}`),
+);
