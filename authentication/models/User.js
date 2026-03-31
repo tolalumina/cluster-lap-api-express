@@ -17,4 +17,6 @@ const createUser = async ({ name, email, password }) => {
   return { id: result.insertId, name, email };
 };
 
+
+
 module.exports = { findByEmail, createUser };
